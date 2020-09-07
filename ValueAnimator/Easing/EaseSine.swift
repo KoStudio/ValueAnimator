@@ -17,7 +17,14 @@ public class EaseSine {
     ///  and then accelerates motion as it executes.
     public static func easeIn() -> Easing {
         return { t, b, c, d in
-            return -c * cos(t / d * (Double.pi / 2)) + c + b
+            
+                ////////////////////////////////////////////
+                //fixed bug for Xcode compile check error
+                //
+                // by ko 20.09.07
+                ////////////////////////////////////////////
+            let ret = -c * cos(t / d * (Double.pi / 2)) + c + b
+            return ret
         }
     }
 
@@ -35,7 +42,16 @@ public class EaseSine {
     ///  then decelerate to a zero velocity.
     public static func easeInOut() -> Easing {
         return { t, b, c, d in
-            return -c / 2 * (cos(Double.pi * t / d) - 1) + b
+            
+            
+                ////////////////////////////////////////////
+                //fixed bug for Xcode compile check error
+                //
+                // by ko 20.09.07
+                ////////////////////////////////////////////
+            
+            let ret = -c / 2 * (cos(Double.pi * t / d) - 1) + b
+            return ret
         }
     }
 }
